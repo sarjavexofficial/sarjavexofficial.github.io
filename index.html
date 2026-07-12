@@ -1,24 +1,218 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sarjavex</title>
-<style>
-  :root { color-scheme: light dark; }
-  body { font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; max-width: 720px; margin: 0 auto; padding: 48px 20px; line-height: 1.8; }
-  h1 { letter-spacing: -0.5px; }
-  a { color: #6c5ce7; }
-  .muted { opacity: 0.7; font-size: 0.9em; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarjavex — 自社プロダクトをつくるアプリ開発カンパニー</title>
+  <meta name="description" content="Sarjavexは自社プロダクトの企画・開発・運用に特化したアプリ開発カンパニーです。受託開発は行っていません。">
+  <!-- OGP: SNSでリンクを貼ったときのプレビュー表示用 -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sarjavex">
+  <meta property="og:title" content="Sarjavex — 自社プロダクトをつくるアプリ開発カンパニー">
+  <meta property="og:description" content="自社プロダクトの企画・開発・運用に特化したアプリ開発カンパニー。第1弾はAI時代の記憶ノート「Memory Twin」。">
+  <meta property="og:url" content="https://sarjavexofficial.github.io/">
+  <meta property="og:image" content="https://sarjavexofficial.github.io/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23111'/></svg>">
 </head>
 <body>
-<h1>Sarjavex</h1>
-<p>記録と記憶のためのプロダクトをつくっています。</p>
-<ul>
-  <li><strong>Memory Twin</strong> — AIを変えても、あなたの記憶は残る。日記×AIの記憶基盤アプリ（準備中）</li>
-</ul>
-<p><a href="./privacy.html">プライバシーポリシー / Privacy Policy</a></p>
-<p class="muted">お問い合わせ: sarjavex.official@gmail.com</p>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#top" class="logo">Sarjavex</a>
+      <nav class="nav" id="nav">
+        <a href="#about">私たちについて</a>
+        <a href="#products">プロダクト</a>
+        <a href="#values">こだわり</a>
+        <a href="#company">会社概要</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#contact" class="btn btn-dark btn-sm">お問い合わせ</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-blob hero-blob-a" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-b" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <h1 class="hero-title reveal">
+          つくりたいものを、<br>つくる。
+        </h1>
+        <p class="hero-lead reveal d1">
+          Sarjavex は、自社プロダクトの開発に特化したアプリ開発カンパニーです。企画からリリースまで、すべて自分たちの手で。
+        </p>
+        <div class="hero-actions reveal d2">
+          <a href="#products" class="btn btn-dark">プロダクトを見る</a>
+          <a href="#about" class="btn btn-light">私たちについて <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section-label reveal">私たちについて</p>
+        <h2 class="section-title reveal">「作りたい」を、<br class="sp-only">最短距離で「動くもの」へ。</h2>
+        <div class="about-text reveal d1">
+          <p>
+            Sarjavex は、モバイル・Web アプリケーションを自社で企画・開発・運用するプロダクトカンパニーです。クライアントワーク(受託開発)は行っていません。
+          </p>
+          <p>
+            小さなチームだからこそ、意思決定から実装までが速い。自分たちが本当に欲しいと思えるプロダクトだけを、納得のいくかたちで世に出していきます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTS ============ -->
+    <section class="section section-gray" id="products">
+      <div class="container">
+        <p class="section-label reveal">プロダクト</p>
+        <h2 class="section-title reveal">つくっているもの</h2>
+
+        <article class="product-feature reveal">
+          <div class="product-info">
+            <div class="product-badges">
+              <span class="badge badge-dark">iPhone (iOS)</span>
+              <span class="badge badge-accent">App Store 近日公開</span>
+            </div>
+            <h3 class="product-name">Memory Twin</h3>
+            <p class="product-tagline">AI時代の記憶ノート ― AIを変えても、記憶は残る。</p>
+            <p class="product-desc">
+              日記・人物メモ・AIとの会話を「長期記憶」として蓄積し、必要なときに AI が根拠つきで思い出させてくれる iPhone アプリ。ChatGPT や Claude の会話履歴もインポートでき、AI を乗り換えても大事な決定・約束・気づきが資産として残り続けます。
+            </p>
+            <p class="product-price">基本機能は無料(App内課金あり)・7日間の Pro 無料体験つき</p>
+          </div>
+          <ul class="product-points">
+            <li>
+              <span class="point-icon">🔍</span>
+              <div>
+                <h4>AI検索(根拠つき回答)</h4>
+                <p>「あの時なんて決めたっけ?」と聞くだけで、根拠となる記録を添えて AI が回答。</p>
+              </div>
+            </li>
+            <li>
+              <span class="point-icon">📬</span>
+              <div>
+                <h4>Today Recall</h4>
+                <p>「今日会う人との前回の話題」など、今日必要な記憶をアプリ側から能動的に届けます。</p>
+              </div>
+            </li>
+            <li>
+              <span class="point-icon">📥</span>
+              <div>
+                <h4>AI履歴インポート</h4>
+                <p>ChatGPT・Claude の公式エクスポートをタイムラインに統合。忘れていた約束も自動発見。</p>
+              </div>
+            </li>
+            <li>
+              <span class="point-icon">🔒</span>
+              <div>
+                <h4>ローカルファースト設計</h4>
+                <p>記録はすべて端末内に保存。バックアップは端末上で暗号化され、運営者にも読めません。</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="products-note reveal">新しいプロダクトも準備中です。リリースにあわせて順次公開していきます。</p>
+      </div>
+    </section>
+
+    <!-- ============ VALUES ============ -->
+    <section class="section" id="values">
+      <div class="container">
+        <p class="section-label reveal">こだわり</p>
+        <h2 class="section-title reveal">大切にしていること</h2>
+        <div class="strengths">
+          <div class="strength reveal">
+            <h3>小さく、速く</h3>
+            <p>思いついたら、すぐ形にする。小さくリリースして、使いながら育てていきます。</p>
+          </div>
+          <div class="strength reveal d1">
+            <h3>自分たちで使う</h3>
+            <p>自分たちが毎日使いたいと思えるものだけをつくる。それが品質のいちばんの基準です。</p>
+          </div>
+          <div class="strength reveal d2">
+            <h3>新しい技術</h3>
+            <p>AI をはじめとする最新技術を積極的に取り入れ、プロダクトの体験を磨き続けます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPANY ============ -->
+    <section class="section section-gray" id="company">
+      <div class="container">
+        <p class="section-label reveal">会社概要</p>
+        <h2 class="section-title reveal">Company</h2>
+        <dl class="company-table reveal d1">
+          <div><dt>社名</dt><dd>Sarjavex（サージャベックス）</dd></div>
+          <div><dt>事業内容</dt><dd>自社アプリケーションの企画・開発・運用</dd></div>
+          <div><dt>設立</dt><dd>2026年</dd></div>
+          <div><dt>所在地</dt><dd>日本</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-container">
+        <h2 class="section-title reveal">お問い合わせ</h2>
+        <p class="contact-lead reveal d1">
+          プロダクトに関するご意見・ご感想、取材などのご連絡は下記フォームから受け付けています。
+        </p>
+
+        <form class="contact-form reveal d2" id="contact-form"
+              action="https://formsubmit.co/sarjavex.official@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="お問い合わせ（Sarjavex サイト）">
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label>
+            <span>お名前</span>
+            <input type="text" name="name" placeholder="山田 太郎" required>
+          </label>
+          <label>
+            <span>メールアドレス</span>
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+          <label>
+            <span>お問い合わせ内容</span>
+            <textarea name="message" rows="6" placeholder="ご意見・ご感想・取材のご依頼など" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-dark btn-lg" id="form-submit">送信する</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact-email reveal d2">
+          <span class="contact-alt">フォームが使えない場合はこちらへ:</span>
+          <span class="email-text" id="email-text">sarjavex.official@gmail.com</span>
+          <button class="copy-btn" id="copy-email" type="button">コピー</button>
+        </div>
+        <p class="contact-note reveal d2">※ 受託開発・制作のご依頼は承っておりません。</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">Sarjavex</span>
+      <a class="footer-link" href="./privacy.html">プライバシーポリシー / Privacy Policy</a>
+      <small>&copy; 2026 Sarjavex. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
