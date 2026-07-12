@@ -26,6 +26,18 @@ nav.querySelectorAll("a").forEach((a) =>
   })
 );
 
+// ---------- UI文言（英語ページは<body>のdata-msg-*属性で差し替える。無ければ日本語） ----------
+const MSG = {
+  copied: document.body.dataset.msgCopied || "✓ コピーしました",
+  copy: document.body.dataset.msgCopy || "コピー",
+  sending: document.body.dataset.msgSending || "送信中…",
+  send: document.body.dataset.msgSend || "送信する",
+  sent: document.body.dataset.msgSent || "送信しました。ご連絡ありがとうございます。",
+  fail:
+    document.body.dataset.msgFail ||
+    "送信に失敗しました。お手数ですが下記のメールアドレス宛に直接ご連絡ください。",
+};
+
 // ---------- Copy email ----------
 const copyBtn = document.getElementById("copy-email");
 const emailText = document.getElementById("email-text");
@@ -46,11 +58,11 @@ if (copyBtn && emailText) {
       document.execCommand("copy");
       ta.remove();
     }
-    copyBtn.textContent = "✓ コピーしました";
+    copyBtn.textContent = MSG.copied;
     copyBtn.classList.add("copied");
     clearTimeout(resetTimer);
     resetTimer = setTimeout(() => {
-      copyBtn.textContent = "コピー";
+      copyBtn.textContent = MSG.copy;
       copyBtn.classList.remove("copied");
     }, 2000);
   });
@@ -64,7 +76,7 @@ if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     formSubmit.disabled = true;
-    formSubmit.textContent = "送信中…";
+    formSubmit.textContent = MSG.sending;
     formStatus.className = "form-status";
     formStatus.textContent = "";
 
@@ -80,14 +92,13 @@ if (form) {
       if (String(data.success) !== "true") throw new Error(data.message || "submit failed");
       form.reset();
       formStatus.classList.add("ok");
-      formStatus.textContent = "送信しました。ご連絡ありがとうございます。";
+      formStatus.textContent = MSG.sent;
     } catch {
       formStatus.classList.add("ng");
-      formStatus.textContent =
-        "送信に失敗しました。お手数ですが下記のメールアドレス宛に直接ご連絡ください。";
+      formStatus.textContent = MSG.fail;
     } finally {
       formSubmit.disabled = false;
-      formSubmit.textContent = "送信する";
+      formSubmit.textContent = MSG.send;
     }
   });
 }

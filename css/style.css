@@ -482,6 +482,15 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.lang-link {
+  color: var(--text-dim);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 4px;
+}
+.lang-link:hover { color: var(--text); }
+
 .footer-logo { font-weight: 700; font-size: 15px; }
 .footer-link {
   color: var(--text-dim);
