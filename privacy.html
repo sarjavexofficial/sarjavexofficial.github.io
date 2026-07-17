@@ -56,7 +56,7 @@
 <p>AI機能・バックアップの過剰利用を防ぐため、アプリはランダム生成された匿名IDを端末内に保持し、リクエスト時にサーバーへ送信します。このIDは氏名・メールアドレス等と紐づかず、利用回数の集計と不正利用の防止にのみ使用します。また、過剰アクセスを防ぐため、リクエスト元ごとの利用回数を集計します。これらの集計値は定期的に自動削除され、記録の内容と紐づけられることはありません。</p>
 
 <h2>5. サインイン情報</h2>
-<p>Apple・Googleによるサインインは任意です。取得した名前・メールアドレスは<strong>端末内にのみ保存</strong>され、当方のサーバーには送信されません。アカウントIDから一方向に導出した値（元のアカウントを特定できない値）のみを、暗号化クラウドバックアップの保管先を利用者ごとに分けるためと、Pro無料体験（7日間）の付与を1アカウント1回に限るための記録に使用します。</p>
+<p>Apple・Googleによるサインインは任意です。取得した名前・メールアドレスは<strong>端末内にのみ保存</strong>され、当方のサーバーには送信されません。暗号化クラウドバックアップの保管先を利用者ごとに分けるため、アカウントIDから一方向に導出した値（元のアカウントを特定できない値）のみをバックアップの識別に使用します。</p>
 
 <h2>6. アカウントとデータの削除</h2>
 <p>利用者は、アプリ内からいつでも次の操作を行えます。</p>
@@ -125,7 +125,7 @@
 <p>To prevent excessive use of AI features and backups, the App keeps a randomly generated anonymous ID on your device and sends it with requests. This ID is not linked to your name or email and is used only for usage counting and abuse prevention. We also count requests per requester to prevent excessive access. These counters are automatically deleted on a regular basis and are never linked to the content of your records.</p>
 
 <h2>5. Sign-in information</h2>
-<p>Signing in with Apple or Google is optional. The name and email obtained are <strong>stored only on your device</strong> and are not sent to our servers. Only a one-way value derived from your account ID (from which the original account cannot be identified) is used — to separate encrypted cloud backups per user, and to record that the 7-day Pro free trial has been granted once per account.</p>
+<p>Signing in with Apple or Google is optional. The name and email obtained are <strong>stored only on your device</strong> and are not sent to our servers. To separate encrypted cloud backups per user, only a one-way value derived from your account ID (from which the original account cannot be identified) is used to identify your backup.</p>
 
 <h2>6. Deleting your account and data</h2>
 <p>You can do the following at any time from within the App:</p>
