@@ -1,0 +1,38 @@
+# 無料インフラのキープアライブ
+# - Supabase無料プロジェクトは1週間アクセスがないと自動停止するため、毎日1回読み取りを行う
+# - ついでにRender上のSarjavex APIの死活確認も行う（落ちていればこのワークフローが失敗として通知される）
+#
+# 置き場所について: このリポジトリ（公開）に置く理由は、GitHub Actionsの無料枠が
+# 公開リポジトリでは無制限だから。プライベートのsarjavex-apiに置くと月2,000分の上限に当たる。
+# 使っているキーはSupabaseの「公開可能キー(publishable)」のみで、秘密情報は含まない。
+#
+# 注意: GitHubはリポジトリに60日間更新がないと定期実行を自動で無効化する。
+#       その際は通知メールのボタン、またはActionsタブから再有効化すればよい。
+name: keep-alive
+
+on:
+  schedule:
+    - cron: '17 21 * * *' # 毎日 UTC 21:17 = 日本時間 6:17（0分ちょうどはGitHub全体で混雑し遅延・スキップされやすいため半端な時刻にする）
+  workflow_dispatch: {} # Actionsタブから手動実行もできるようにしておく（動作確認用）
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      # キーはSupabaseの「公開可能キー(publishable)」なので、リポジトリに直書きしてよい
+      - name: Ping Supabase (こだまDB)
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://atxtpgqomgirhzbsvwxo.supabase.co/rest/v1/echoes?select=id&limit=1" \
+            -H "apikey: sb_publishable_sxw_04cO4DRl6rncOG3npA_4YgJ0ut1" \
+            -H "authorization: Bearer sb_publishable_sxw_04cO4DRl6rncOG3npA_4YgJ0ut1")
+          echo "Supabase HTTP $code"
+          test "$code" = "200"
+
+      # Render無料プランはスリープからの起床に時間がかかるため、タイムアウトは長めにとる
+      - name: Ping Render (Sarjavex API)
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 120 \
+            https://sarjavex-ai-api.onrender.com/health)
+          echo "Render HTTP $code"
+          test "$code" = "200"

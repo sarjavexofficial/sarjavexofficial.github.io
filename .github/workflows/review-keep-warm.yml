@@ -1,0 +1,31 @@
+# App Store審査・リリース初期のキープウォーム
+# Render無料プランは約15分の無通信でスリープし、審査員の初回AI操作が最大60秒待ちになる。
+# 「壊れている」と誤判定されるリスクを下げるため、審査期間中は10分おきに /health を叩いて温めておく。
+#
+# 置き場所について: このリポジトリ（公開）に置く理由は、GitHub Actionsの無料枠が
+# 公開リポジトリでは無制限だから。プライベートのsarjavex-apiに置くと10分おき実行は
+# 月4,300分相当になり、無料枠2,000分を使い切って月の途中で全Actionsが止まる。
+#
+# 運用メモ:
+# - GitHub Actionsのcronは正確ではなく数分遅れることがある（それでも大半の時間は温かい状態を保てる）
+# - アプリ自身も起動時にウォームアップを行う（warmUpSarjavex）ため、これは保険の二重化
+# - リリースが軌道に乗って有料Renderに移行したら、このファイルは削除してよい
+# - keep-alive.yml（毎朝のSupabase起こし）とは別物なので消さないこと
+
+name: review-keep-warm
+
+on:
+  schedule:
+    - cron: '*/10 * * * *' # 10分おき（審査期間中）
+  workflow_dispatch: {} # 手動実行（動作確認用）
+
+jobs:
+  warm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Warm Render (Sarjavex API)
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 120 \
+            https://sarjavex-ai-api.onrender.com/health)
+          echo "Render HTTP $code"
+          test "$code" = "200"
